@@ -1,10 +1,11 @@
 # tov
-
-Convert JSON, YAML, TOML or XML into V structs.
+Convert JSON, YAML, TOML or XML into **V structs**.
 
 No UI.
+
 No magic.
-Just structs.
+
+Just **structs**.
 
 ---
 
@@ -14,7 +15,6 @@ Just structs.
 git clone https://github.com/seu-usuario/tov.git
 cd tov
 v -prod -cflags "-s" .
-
 ```
 
 ----------
@@ -25,7 +25,6 @@ v -prod -cflags "-s" .
 tov -f input.json -o output.v
 cat input.json | tov -o output.v
 tov -t yaml < input.yaml
-
 ```
 
 ----------
@@ -40,7 +39,6 @@ tov -t yaml < input.yaml
 ----------
 
 ## Example
-
 ```json
 {
   "name": "John",
@@ -79,4 +77,12 @@ struct Root {
 
 ----------
 
-Apache-2.0
+## Contributing
+
+[Contribution guide](CONTRIBUTING.md)
+
+----------
+
+## Licence
+
+[Apache-2.0](LICENSE)
