@@ -64,15 +64,17 @@ struct Root {
 
 ## Roadmap
 
-[]  JSON
+- [x] CLI
 
-[]  XML
+- [ ]  JSON
 
-[]  YAML
+- [ ]  XML
 
-[]  TOML
+- [ ]  YAML
 
-[]  CONF (maybe?)
+- [ ]  TOML
+
+- [ ]  CONF (maybe?)
 
 ----------
 
