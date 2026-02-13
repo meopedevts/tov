@@ -27,7 +27,8 @@ pub fn detect_file_type_from_content(content string) FileType {
 	trimmed := content.trim_space()
 	if trimmed.starts_with('{') && trimmed.ends_with('}') {
 		return FileType.json
-	} else if (trimmed.contains(':') && trimmed.contains('\n')) || (trimmed.contains('- ') && trimmed.contains('\n')) {
+	} else if (trimmed.contains(':') && trimmed.contains('\n'))
+		|| (trimmed.contains('- ') && trimmed.contains('\n')) {
 		return FileType.yaml
 	} else if trimmed.contains('=') && trimmed.contains('\n') {
 		return FileType.toml
