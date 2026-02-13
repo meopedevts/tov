@@ -13,36 +13,34 @@ pub fn new_command() TovCommand {
 	mut app := cli.Command{
 		name:        'tov'
 		description: 'Parse JSON/XML/YAML/TOMl files to V structs'
-		usage: '\n\n'
-			+ 'Examples:\n'
-			+ '  tov -f input.json -o output.v\n'
-			+ '  cat input.yaml | tov -o output.v\n'
-		posix_mode: true
-		execute: execute
-		flags: [
-			cli.Flag {
-				flag: .string
-				name: 'file'
-				abbrev: 'f'
+		usage:       '\n\n' + 'Examples:\n' + '  tov -f input.json -o output.v\n' +
+			'  cat input.yaml | tov -o output.v\n'
+		posix_mode:  true
+		execute:     execute
+		flags:       [
+			cli.Flag{
+				flag:        .string
+				name:        'file'
+				abbrev:      'f'
 				description: 'Input file (if not provided, reads from stdin)'
-				required: false
-			}
+				required:    false
+			},
 			cli.Flag{
-				flag: .string
-				name: 'output'
-				abbrev: 'o'
+				flag:        .string
+				name:        'output'
+				abbrev:      'o'
 				description: 'Output file name (V struct will be written to this file)'
-				required: false
-			}
+				required:    false
+			},
 			cli.Flag{
-				flag: .string
-				name: 'type'
-				abbrev: 't'
+				flag:        .string
+				name:        'type'
+				abbrev:      't'
 				description: 'File type (json, yaml, toml, xml). If not provided, it will be auto-detected based on file extension or content if possible.'
-				required: false
-			}
+				required:    false
+			},
 		]
-		args: ['file']
+		args:        ['file']
 	}
 
 	return TovCommand{
@@ -59,9 +57,7 @@ fn execute(c cli.Command) ! {
 	file_name := c.flags.get_string('file')!
 
 	file_content := if file_name != '' {
-		os.read_file(file_name) or {
-			return error('${err.msg} (os error ${err.code})')
-		}
+		os.read_file(file_name) or { return error('${err.msg} (os error ${err.code})') }
 	} else {
 		os.get_raw_lines_joined()
 	}
